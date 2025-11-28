@@ -129,7 +129,7 @@ sum(rate(http_server_requests_seconds_count{uri="/v1/allow",status="429"}[1m]))
 | In-Memory |   **34.2%** | **6.54** | **286.2** | 単一インスタンス向け  |
 | Redis+Lua |   **33.4%** | **11.53** | **277.4** | 原子更新（複数台向け） |
 
-> ※ あなたの k6 実行結果（`http_req_failed` ≒ 429 率）から算出。環境差が出るので数値は各自で更新してください。
+> ※ k6 実行結果（`http_req_failed` ≒ 429 率）から算出。環境差が出るので数値は各自で更新してください。
 
 **Redis 停止 × fail-mode 検証**
 
