@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: rate-limiter
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+ratelimit:
+  capacity: 10
+  refill-per-second: 5.0
+  idle-evict-seconds: 1800
+  backend: redis         # memory / redis
+  fail-mode: CLOSED    # OPEN=許可優先 / CLOSED=拒否優先
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, prometheus, metrics, info
+  endpoint:
+    health:
+      show-details: when_authorized
+  metrics:
+    tags:
+      application: rate-limiter
